@@ -42,3 +42,14 @@ for i in {1..1000}; do curl -s -X POST http://localhost:8080/api/orders; done
 docker exec kafka /opt/kafka/bin/kafka-get-offsets.sh \
   --bootstrap-server localhost:9092 --topic orders
 ```
+## Watch live messages:
+```bash
+docker exec kafka /opt/kafka/bin/kafka-console-consumer.sh \
+  --bootstrap-server localhost:9092 --topic orders
+```
+
+## Describe topic:
+```bash
+docker exec kafka /opt/kafka/bin/kafka-topics.sh \
+  --bootstrap-server localhost:9092 --describe --topic orders
+```
